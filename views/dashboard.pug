@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    style
+      include style.css
+    title= title
+  body
+    h1= message
+    h3 Control Panel w/ MongoDB 
+    //- input(type="button", value="+1 rec random type" onclick="addRecRandMDB()")
+    //- input(type="button", value="+1 rec type A" onclick="addRecAMDB()")
+    //- input(type="button", value="+1 rec type B", onclick="addRecBMDB()")
+    //- br
+    //- input(type="button", value="-1 rec by rec", onclick="handleRecByRecMDB()")
+    //- input(type="button", value="-1 rec type A", onclick="handleRecAMDB()")
+    //- input(type="button", value="-1 rec type B", onclick="handleRecBMDB()")
+    div
+      h3 Table of Servers MongoDB:
+      - const arrayOfServersT = serversT
+        table#servertableS
+          tbody
+            tr
+              th ID
+              th LOAD              
+              th STATUS              
+              th HOST              
+              th PORT
+              th CONTENT TYPE
+              th MAX CAPACITY
+              th DATE CR
+              th DATE UPDTD
+              th _V              
+                for i in arrayOfServersT
+                  tr
+                    for property in i
+                      td= property
+      h3 Table of Records MongoDB:                      
+      - const arrayOfRecordsT = recordT    
+        table#recordstableT
+          tbody
+            for key in Object.keys(arrayOfRecordsT[0])
+              th= key
+            tr
+              for i in arrayOfRecordsT
+                tr
+                  for property in i
+                    td= property
+
+//- table#recordstableT
+//-           tbody
+//-             tr
+                  //- th ID
+                  //- th VIDEO OPTIONS 
+                  //- th CONTENT TYPE
+                  //- th CALLBACK URL
+                  //- th QUALITY
+                  //- th STATUS
+                  //- th ZIPPATH
+                  //- th CUSTOME
+                  //- th PROJECT ID
+                  //- th DATE CR
+                  //- th DATE UPDTD
+                  //- th CONSUMER ID
+                  //- th _V
+//-                 for i in arrayOfRecordsT
+//-                   tr
+//-                     for property in i
+//-                       td= property
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script
+      include script.js

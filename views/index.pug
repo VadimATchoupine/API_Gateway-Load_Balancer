@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    style
+      include style.css
+    title= title
+  body
+    h1= message
+    h3 Control Panel w/ MongoDB
+    input(type="button", value="+1 rec random type" onclick="addRecRandMDB()")
+    input(type="button", value="+1 rec type A" onclick="addRecAMDB()")
+    input(type="button", value="+1 rec type B", onclick="addRecBMDB()")
+    br
+    input(type="button", value="-1 rec by rec", onclick="handleRecByRecMDB()")
+    input(type="button", value="-1 rec type A", onclick="handleRecAMDB()")
+    input(type="button", value="-1 rec type B", onclick="handleRecBMDB()")
+    br    
+    h3 Control Panel w/ local variable
+    input(type="button", value="+1 rec random type" onclick="addRecRand()")
+    input(type="button", value="+1 rec type A" onclick="addRecA()")
+    input(type="button", value="+1 rec type B", onclick="addRecB()")
+    br
+    input(type="button", value="-1 rec by rec", onclick="handleRecByRec()")
+    input(type="button", value="-1 rec type A", onclick="handleRecA()")
+    input(type="button", value="-1 rec type B", onclick="handleRecB()")
+    br
+    div
+      h3 Test list
+        //- - const arrayOfServers = servers
+        //- for i in arrayOfServers
+          p= i.id
+          p= i.status
+      h3 Table of Servers MongoDB:
+      - const arrayOfServersT = serversT
+        table#servertableS
+          tbody
+            tr
+              th ID
+              th LOAD              
+              th STATUS              
+              th HOST              
+              th PORT
+              th CONTENT TYPE
+              th MAX CAPACITY
+              th DATE CR
+              th DATE UPDTD
+              th _V              
+                for i in arrayOfServersT
+                  tr
+                    for property in i
+                      td= property
+      h3 Table of Records MongoDB:                      
+      - const arrayOfRecordsT = recordT    
+        table#recordstableT
+          tbody
+            tr
+              th ID
+              th CONTENT TYPE
+              th STATUS
+              th URL
+              th CUSTOME
+              th DATE CR
+              th DATE UPDTD
+              th CONSUMER ID
+              th _V
+                for i in arrayOfRecordsT
+                  tr
+                    for property in i
+                      td= property
+      h3 Table of Servers:
+      - const arrayOfServers = servers
+        table#servertable
+          tbody
+            tr
+              th ID
+              th PORT
+              th HOST
+              th CONTENT TYPE
+              th MAX CAPACITY
+              th LOAD
+              th STATUS
+                for i in arrayOfServers
+                  tr
+                    for property in i
+                      td= property
+      h3 Table of Queue:
+      - const arrayOfQueue = queue
+        table#queuetable
+          tbody
+            tr
+              th ID
+              th TYPE
+              th STATUS
+              th URL
+              th CUSTOME
+              th CONSUMER ID
+              th DATE
+                for i in arrayOfQueue
+                  tr
+                    for property in i
+                      td= property
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script
+      include script.js

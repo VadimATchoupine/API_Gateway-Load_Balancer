@@ -1,0 +1,18 @@
+h1 {
+    color: grey;
+}
+table {
+    width: 100%;
+    text-align: center;
+}
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+td {
+    font-style: normal;
+    font-size: 0.875em;
+}
+button {
+    width: 100px;
+}
